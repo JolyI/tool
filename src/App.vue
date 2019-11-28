@@ -4,4 +4,26 @@
   </div>
 </template>
 
-<style lang="less"></style>
+<style lang="less">
+@import url("./assets/iconfont/iconfont.css");
+.iconfont {
+  font-size: 32px;
+}
+html {
+  background-color: #f8f8f8;
+}
+#app {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  width: 750px;
+  margin: 0 auto;
+  * {
+    box-sizing: border-box;
+  }
+  img {
+    display: block;
+  }
+}
+</style>

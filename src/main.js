@@ -2,10 +2,15 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import "amfe-flexible";
-import Cube from "cube-ui";
+import "normalize.css";
+import "lib-flexible";
+import FastClick from "fastclick";
+import Mintui from "mint-ui";
+import "mint-ui/lib/style.css";
+FastClick.attach(document.body);
 
-Vue.use(Cube);
+Vue.use(Mintui);
+
 Vue.config.productionTip = false;
 
 new Vue({
