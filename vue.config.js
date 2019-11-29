@@ -1,10 +1,11 @@
 const path = require("path");
 const webpackHookPlugin = require("webpack-hook-plugin");
-const dayjs = require("dayjs");
-const version = dayjs().format("YYMMDDHHmm");
-process.argv[3] = process.argv[3] || "--prod";
-const isProd = process.env.NODE_ENV === "production";
-
+// const dayjs = require("dayjs");
+// const version = dayjs().format("YYMMDDHHmm");
+// process.argv[3] = process.argv[3] || "-prod";
+const isProd =
+  process.env.NODE_ENV === "production" && process.argv[3] === "-prod";
+console.log("***********", isProd);
 function resolve(dir) {
   return path.join(__dirname, dir);
 }
