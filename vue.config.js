@@ -80,7 +80,7 @@ module.exports = {
       })
     ]
   },
-  publicPath: "/",
+  publicPath: process.env.NODE_ENV === "production" ? "/ahtool" : "./",
   outputDir: "dist",
   assetsDir: "static",
   // 是否使用包含运行时编译器的Vue核心的构建
@@ -109,9 +109,12 @@ module.exports = {
   devServer: {
     proxy: {
       "/api": {
-        target: "http://api.avatardata.cn/",
+        target: "http://api.avatardata.cn",
         ws: true,
-        changeOrigin: true
+        changeOrigin: true,
+        pathRewrite: {
+          "^/api": "" //需要rewrite重写的,
+        }
       }
     }
   }

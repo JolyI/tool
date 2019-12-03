@@ -1,7 +1,13 @@
 <template>
   <div class="page-home">
+    <img src="../assets/banner/banner2.jpg" alt class="banner" />
     <div class="list">
-      <div class="list-item" v-for="(item, index) in list" :key="index">
+      <div
+        class="list-item"
+        v-for="(item, index) in list"
+        :key="index"
+        @click="routerLink(item)"
+      >
         <div class="item-box">
           <div class="cover">
             <i :class="['iconfont', item.icon]"></i>
@@ -19,7 +25,8 @@ export default {
       list: [
         {
           name: "周公解梦",
-          icon: "icon-zhou"
+          icon: "icon-zhou",
+          link: "dream/index"
         },
         {
           name: "天气",
@@ -60,20 +67,21 @@ export default {
     this.getData();
   },
   methods: {
-    getData() {}
+    getData() {},
+    routerLink(item) {
+      if (item.link) {
+        this.$router.push({ path: item.link });
+      }
+    }
   }
 };
 </script>
 <style lang="less" scoped>
 .page-home {
-  .banner-img {
+  user-select: none;
+  .banner {
     width: 100%;
-    height: 120px;
-  }
-  .banner-img[lazy="loading"] {
-    width: 100%;
-    height: 120px;
-    background-color: sandybrown;
+    height: 150px;
   }
   .list {
     display: flex;
@@ -87,16 +95,35 @@ export default {
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      &:nth-child(n) {
+        .item-box {
+          background-color: darkcyan;
+        }
+      }
+      &:nth-child(2n) {
+        .item-box {
+          background-color: sandybrown;
+        }
+      }
       .item-box {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        width: 90%;
+        margin-top: 50px;
+        border-radius: 10px;
+        padding: 20px;
+        &:active {
+          opacity: 0.7;
+        }
         .iconfont {
-          font-size: 40px;
+          font-size: 50px;
         }
         .name {
           font-size: 30px;
+          color: rgb(43, 40, 40);
+          margin-top: 10px;
         }
       }
     }
