@@ -17,8 +17,8 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  width: 750px;
   margin: 0 auto;
+  max-width: 750px;
   * {
     box-sizing: border-box;
   }

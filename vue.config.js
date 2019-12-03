@@ -1,3 +1,4 @@
+const { SkeletonPlugin } = require("page-skeleton-webpack-plugin");
 const path = require("path");
 const webpackHookPlugin = require("webpack-hook-plugin");
 // const dayjs = require("dayjs");
@@ -30,8 +31,56 @@ module.exports = {
       }
     }
   },
-  pluginOptions: {},
-  publicPath: "/ahtool",
+  configureWebpack: {
+    plugins: [
+      new SkeletonPlugin({
+        pathname: path.resolve(__dirname, "./shell"),
+        staticDir: path.resolve(__dirname, "./dist"),
+        routes: ["/"],
+        loading: "chiaroscuro", //..Animations of skeleton page, enumerated values:spin chiaroscuro shine
+        text: {
+          color: "#EEEEEE"
+        },
+        image: {
+          shape: "rect", // `rect` | `circle`
+          color: "#EFEFEF",
+          shapeOpposite: []
+        },
+        button: {
+          color: "#EFEFEF",
+          excludes: []
+        },
+        svg: {
+          color: "#EFEFEF",
+          shape: "circle", // circle | rect
+          shapeOpposite: []
+        },
+        pseudo: {
+          color: "#EFEFEF", // or transparent
+          shape: "circle" // circle | rect
+        },
+        debug: false,
+        minify: {
+          minifyCSS: { level: 2 },
+          removeComments: true,
+          removeAttributeQuotes: true,
+          removeEmptyAttributes: false
+        },
+        defer: 5000,
+        excludes: [".mint-header"],
+        remove: [],
+        hide: [],
+        grayBlock: [],
+        cssUnit: "vw",
+        decimal: 4,
+        logLevel: "info",
+        quiet: false,
+        noInfo: false,
+        logTime: true
+      })
+    ]
+  },
+  publicPath: "/",
   outputDir: "dist",
   assetsDir: "static",
   // 是否使用包含运行时编译器的Vue核心的构建
@@ -52,6 +101,10 @@ module.exports = {
         .plugin("hook")
         .use(webpackHookPlugin, [{ onBuildEnd: [`sh deploy.sh`] }]);
     }
+    config.plugin("html").tap(args => {
+      args[0].minify = false;
+      return args;
+    });
   },
   devServer: {
     proxy: {
