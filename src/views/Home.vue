@@ -71,6 +71,8 @@ export default {
     routerLink(item) {
       if (item.link) {
         this.$router.push({ path: item.link });
+      } else {
+        this.$message.alert("开发中...", "提示");
       }
     }
   }
@@ -116,6 +118,12 @@ export default {
         padding: 20px;
         &:active {
           opacity: 0.7;
+          .name {
+            color: #666;
+          }
+          .icongfont {
+            color: #666;
+          }
         }
         .iconfont {
           font-size: 50px;

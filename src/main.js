@@ -11,9 +11,12 @@ FastClick.attach(document.body);
 import Api from "./api/http";
 import Keys from "./api/key";
 
+import { MessageBox } from "mint-ui";
+
 Vue.use(Mintui);
 Vue.prototype.$keys = Keys;
 Vue.prototype.$http = new Api();
+Vue.prototype.$message = MessageBox;
 Vue.config.productionTip = false;
 
 new Vue({

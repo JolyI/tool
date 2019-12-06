@@ -3,6 +3,7 @@ import qs from "qs";
 
 export default class Api {
   constructor() {
+    console.log("环境baseUrl=>", process.env);
     const baseUrl =
       process.env.NODE_ENV === "production"
         ? "http://api.avatardata.cn"
