@@ -5,22 +5,20 @@
         <mt-button icon="back"></mt-button>
       </router-link>
     </mt-header>
-    <template v-if="resutl">
-      <div class="list-item">div.</div>
-    </template>
+    <div class="search-header">
+      <input />
+      <mt-button icon="search"></mt-button>
+    </div>
   </div>
 </template>
 <script>
-import resultData from "./data.js";
 export default {
   data() {
     return {
-      resutl: null
+      resutlt: null
     };
   },
-  created() {
-    this.resutl = resultData;
-  },
+  created() {},
   methods: {
     // searchDream() {
     //   this.$http
