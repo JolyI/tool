@@ -1,5 +1,5 @@
 <template>
-  <div class="page-dreamdetail">
+  <div class="page page-dreamdetail">
     <mt-header :title="title" fixed>
       <mt-button icon="back" slot="left" @click="$router.back()"></mt-button>
       <mt-button slot="right" @click="handleCopy(content, $event)"
@@ -37,7 +37,6 @@ export default {
 </script>
 <style lang="less" scoped>
 .page-dreamdetail {
-  padding-top: 80px;
   .mint-header {
     background-color: #f44336;
     font-size: 15px;

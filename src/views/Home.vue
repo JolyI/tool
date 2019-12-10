@@ -34,7 +34,8 @@ export default {
         },
         {
           name: "辞海",
-          icon: "icon-xitongzidian"
+          icon: "icon-xitongzidian",
+          link: "/cihai/index"
         },
         {
           name: "星座配对",
@@ -42,7 +43,8 @@ export default {
         },
         {
           name: "乌云漏洞",
-          icon: "icon-erji-loudongsaomiaoguanli"
+          icon: "icon-erji-loudongsaomiaoguanli",
+          link: "/wbug/index"
         },
         {
           name: "时事新闻",
@@ -54,7 +56,8 @@ export default {
         },
         {
           name: "实时票房",
-          icon: "icon-piaofang"
+          icon: "icon-piaofang",
+          link: "movie/index"
         },
         {
           name: "国际白银价格",

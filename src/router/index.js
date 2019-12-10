@@ -29,6 +29,24 @@ const routes = [
     name: "dream/detail",
     component: () =>
       import(/* webpackChunkName: "dream/index" */ "@views/Dream/detail.vue")
+  },
+  {
+    path: "/movie/index",
+    name: "movie/index",
+    component: () =>
+      import(/* webpackChunkName: "dream/index" */ "@views/Movie/index.vue")
+  },
+  {
+    path: "/wbug/index",
+    name: "wbug/index",
+    component: () =>
+      import(/* webpackChunkName: "dream/index" */ "@views/Wbug/index.vue")
+  },
+  {
+    path: "/cihai/index",
+    name: "cihai/index",
+    component: () =>
+      import(/* webpackChunkName: "dream/index" */ "@views/Cihai/index.vue")
   }
 ];
 

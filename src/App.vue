@@ -12,6 +12,9 @@
 html {
   background-color: #f8f8f8;
 }
+.page {
+  padding-top: 100px;
+}
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

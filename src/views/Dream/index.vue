@@ -1,5 +1,5 @@
 <template>
-  <div class="page-dream">
+  <div class="page page-dream">
     <mt-header title="周公解梦" fixed>
       <router-link to="/" slot="left">
         <mt-button icon="back"></mt-button>
@@ -61,7 +61,6 @@ export default {
 </script>
 <style lang="less" scoped>
 .page-dream {
-  padding-top: 80px;
   .mint-header {
     background-color: #f44336;
     font-size: 15px;

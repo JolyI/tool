@@ -1,7 +1,12 @@
 <template>
   <div class="component-search">
-    <form class="search-box" action @submit.native.prevent>
-      <input type="search" class="input" placeholder="输入你想A一下的内容吧~" />
+    <form class="search-box" action v-on:submit.prevent="search">
+      <input
+        type="search"
+        class="input"
+        placeholder="输入你想A一下的内容吧~"
+        v-model="value"
+      />
       <button class="button">搜索</button>
     </form>
   </div>
@@ -9,9 +14,16 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      value: ""
+    };
   },
-  methods: {}
+  methods: {
+    search($event) {
+      $event.pre;
+      this.$emit("search", this.value);
+    }
+  }
 };
 </script>
 <style lang="less" scoped>
@@ -21,13 +33,13 @@ export default {
   top: 80px;
   left: 0;
   right: 0;
-  @height: 60px;
+  @height: 80px;
   // height: @height;
   background-color: #fff;
-  padding: 10px 30px;
+  padding: 20px 30px;
   .search-box {
     position: relative;
-    height: @height;
+    // height: @height;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -35,14 +47,13 @@ export default {
     .input {
       flex: 1;
       margin-right: 30px;
-      height: @height;
-      line-height: calc(@height - 10);
+      height: 40px;
+      padding: 30px;
       color: #333;
-      font-size: 30px;
+      font-size: 24px;
       border: none;
-      padding: 0 20px;
       background-color: #f0f0f0;
-      border-radius: 10px;
+      border-radius: 2px;
       &:focus {
         outline: 1px solid #f0f0f0;
       }
