@@ -5,20 +5,35 @@
         <mt-button icon="back"></mt-button>
       </router-link>
     </mt-header>
-    <div class="search-header">
-      <input />
-      <mt-button icon="search"></mt-button>
+    <search-Nav></search-Nav>
+    <!-- 结果页面 -->
+    <div class="list">
+      <mt-cell
+        :title="item.title"
+        :label="item.type"
+        is-link
+        @click.native="toDetail(item)"
+        v-for="(item, index) in resutlt.result"
+        :key="index"
+      ></mt-cell>
     </div>
   </div>
 </template>
 <script>
+import searchNav from "@components/searchNav";
+import RESULT_DATA from "./data";
 export default {
+  components: {
+    searchNav
+  },
   data() {
     return {
       resutlt: null
     };
   },
-  created() {},
+  created() {
+    this.resutlt = RESULT_DATA;
+  },
   methods: {
     // searchDream() {
     //   this.$http
@@ -32,6 +47,15 @@ export default {
     //     });
     // }
     // 模拟网络请求
+
+    toDetail(item) {
+      console.log(item);
+      // return;
+      this.$router.push({
+        name: "dream/detail",
+        params: item
+      });
+    }
   }
 };
 </script>
@@ -41,6 +65,9 @@ export default {
   .mint-header {
     background-color: #f44336;
     font-size: 15px;
+  }
+  .list {
+    margin-top: 80px;
   }
 }
 </style>

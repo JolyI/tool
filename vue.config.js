@@ -71,7 +71,7 @@ module.exports = {
         remove: [],
         hide: [],
         grayBlock: [],
-        cssUnit: "vw",
+        cssUnit: "vmax",
         decimal: 4,
         logLevel: "info",
         quiet: false,
@@ -94,8 +94,10 @@ module.exports = {
   chainWebpack: config => {
     config.resolve.alias
       .set("@", resolve("src"))
-      .set("assets", resolve("src/assets"))
-      .set("components", "src/components");
+      .set("@assets", resolve("./src/assets"))
+      .set("@views", resolve("./src/views"))
+      .set("@components", resolve("./src/components"))
+      .set("@utils", resolve("./src/utils"));
     if (isProd) {
       config
         .plugin("hook")
