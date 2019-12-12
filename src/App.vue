@@ -13,7 +13,7 @@ html {
   background-color: #f8f8f8;
 }
 .page {
-  padding-top: 100px;
+  padding-top: 85px;
 }
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
